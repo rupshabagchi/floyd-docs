@@ -1085,7 +1085,7 @@ The syntax is <code class="codehilite">--data &lt;data_name&gt;:&lt;mount_point&
 <p>You can refer to the output of a job by its name with <code class="codehilite">/output</code> appended to it.</p>
 <p>For example: <code class="codehilite">floydhub/projects/handwriting-recognition/12/output</code> refers to the output of the job <code class="codehilite">floydhub/projects/handwriting-recognition/12</code></p>
 <p>You can mount this using the <code class="codehilite">--data</code> flag in the <code class="codehilite">floyd run</code> command, similar to datasets. For example:</p>
-<div class="codehilite"><pre><span></span>$ floyd run --data floydhub/projects/handwriting-recognition/12:filtered_training_data <span class="s2">&quot;python train.py&quot;</span>
+<div class="codehilite"><pre><span></span>$ floyd run --data floydhub/projects/handwriting-recognition/12/output:filtered_training_data <span class="s2">&quot;python train.py&quot;</span>
 </pre></div>
 
 <p>This will make the output of <code class="codehilite">floydhub/projects/handwriting-recognition/12</code> available at <code class="codehilite">/filtered_training_data</code> for the new job to use.</p>
