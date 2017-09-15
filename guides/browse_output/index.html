@@ -8,7 +8,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://www.floydhub.com/guides/ssh/">
+        <link rel="canonical" href="https://www.floydhub.com/guides/browse_output/">
       
       
         <meta name="author" content="FloydHub Team">
@@ -20,7 +20,7 @@
     
     
       
-        <title>SSH into a Job - FloydHub</title>
+        <title>Browse Saved Output - FloydHub</title>
       
     
     
@@ -86,11 +86,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  Environments
+                  Output
                 </span>
               
             
-            SSH into a Job
+            Browse Saved Output
           
         </span>
       </div>
@@ -374,7 +374,7 @@
 
 
   <li class="md-nav__item">
-    <a href="./" title="SSH into a Job" class="md-nav__link">
+    <a href="../ssh/" title="SSH into a Job" class="md-nav__link">
       SSH into a Job
     </a>
   </li>
@@ -473,10 +473,8 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
@@ -542,18 +540,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-    
-    <a href="./" title="SSH into a Job" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ssh/" title="SSH into a Job" class="md-nav__link">
       SSH into a Job
     </a>
-    
   </li>
 
         
@@ -566,8 +557,10 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
@@ -621,11 +614,50 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../browse_output/" title="Browse Saved Output" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Browse Saved Output
+      </label>
+    
+    <a href="./" title="Browse Saved Output" class="md-nav__link md-nav__link--active">
       Browse Saved Output
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#from-floydhubcom" title="From floydhub.com" class="md-nav__link">
+    From floydhub.com
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-the-cli" title="From the CLI" class="md-nav__link">
+    From the CLI
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1045,6 +1077,27 @@
   
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#from-floydhubcom" title="From floydhub.com" class="md-nav__link">
+    From floydhub.com
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-the-cli" title="From the CLI" class="md-nav__link">
+    From the CLI
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1055,43 +1108,38 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/floydhub/floyd-docs/edit/master/docs/guides/ssh.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/floydhub/floyd-docs/edit/master/docs/guides/browse_output.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                  <h1>SSH into a Job</h1>
+                  <h1>Browse Saved Output</h1>
                 
                 <div class="admonition important">
 <p class="admonition-title">Quick Look</p>
-<div class="codehilite"><pre><span></span>$ floyd run --mode jupyter
-</pre></div>
-
-<p><img alt="Jupyter Notebook Terminal Session" src="../../img/wide_short_jupyter_terminal_button.jpg" /></p>
+<p>On the job screen on floydhub.com:</p>
+<p><img alt="Download Output" src="../../img/browse_output_partial.jpg" /></p>
+<p>Or from the CLI:
+<div class="codehilite"><pre><span></span>$ floyd output &lt;username&gt;/projects/&lt;project_name&gt;/&lt;run_number&gt;
+</pre></div></p>
 </div>
-<p>You can start a bash session into your job's environment by running your job in
-Jupyter Notebook mode:</p>
-<div class="codehilite"><pre><span></span>$ floyd run --mode jupyter
-Creating project run. Total upload size: <span class="m">183</span>.0B
-Syncing code ...
-<span class="o">[================================]</span> <span class="m">916</span>/916 - <span class="m">00</span>:00:00
-
-JOB NAME
---------------------
-mckay/projects/ssh/1
-
-Setting up your instance and waiting <span class="k">for</span> Jupyter notebook to become available
-
-Path to jupyter notebook: https://floydhub.com/notebooks/YXau92xMFUshUbMdKqKVVX
+<p>After you've <a href="../data/storing_output">saved output</a> from a job, you can browse the
+output of the job on floydhub.com. Using the CLI, you can open to the job's
+in-browser data-browsing page.</p>
+<p>For downloading output, see <a href="../browse_output">this documentation</a>.</p>
+<p>To learn how to re-use output in a new job, see <a href="../reusing_output">this
+documentation</a>.</p>
+<h2 id="from-floydhubcom">From floydhub.com<a class="headerlink" href="#from-floydhubcom" title="Permanent link">&para;</a></h2>
+<p>From the job's page on floydhub.com, you can browse and download the output of
+the job by using the "Browse" and "Download" icons found on the "Output" tab:</p>
+<p><img alt="Download Output" src="../../img/browse_output_full.jpg" /></p>
+<h2 id="from-the-cli">From the CLI<a class="headerlink" href="#from-the-cli" title="Permanent link">&para;</a></h2>
+<p>To open the browsing window from the CLI, use the
+<a href="../../commands/data"><code class="codehilite">floyd data clone</code></a> command and pass it the path of the
+job's output:</p>
+<div class="codehilite"><pre><span></span>$ floyd output mckay/projects/my_proj/1
+Opening output directory in your browser ...
 </pre></div>
 
-<p>When you visit your running Jupyter Notebook in the browser, click the <code class="codehilite">New</code>
-button in the top right corner of the screen and select the <code class="codehilite">Terminal</code> option
-as shown below:</p>
-<p><img alt="Jupyter Notebook Terminal Button" src="../../img/jupyter_terminal_button.jpg" /></p>
-<p>That button will launch a terminal session in your running instance with root
-access:
-<img alt="Jupyter Notebook Terminal Session" src="../../img/jupyter_terminal.jpg" /></p>
-<p>Currently, FloydHub does not offer true SSH access into instances, but the
-method described above is sufficient for what most users request SSH for.</p>
+<p>The path of the output is <code class="codehilite">&lt;your_username&gt;/projects/&lt;project_name&gt;/&lt;run_number&gt;/output</code>.</p>
                 
                   
                 
@@ -1110,7 +1158,7 @@ method described above is sufficient for what most users request SSH for.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../faqs/environments/" title="Troubleshooting & FAQs" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../download_output/" title="Download Saved Output" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1119,19 +1167,19 @@ method described above is sufficient for what most users request SSH for.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Troubleshooting & FAQs
+                Download Saved Output
               </span>
             </div>
           </a>
         
         
-          <a href="../data/storing_output/" title="Save Output" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../reusing_output/" title="Using Previous Output in a New Job" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Save Output
+                Using Previous Output in a New Job
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

@@ -158,6 +158,18 @@
     </url>
         
     <url>
+     <loc>https://www.floydhub.com/guides/download_output/</loc>
+     <lastmod>2017-09-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://www.floydhub.com/guides/browse_output/</loc>
+     <lastmod>2017-09-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>https://www.floydhub.com/guides/reusing_output/</loc>
      <lastmod>2017-09-15</lastmod>
      <changefreq>daily</changefreq>
