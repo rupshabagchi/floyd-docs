@@ -213,6 +213,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>https://www.floydhub.com/examples/dcgan/</loc>
+     <lastmod>2017-09-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
