@@ -1018,8 +1018,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#serve-model-through-rest-api" title="Serve model through REST API" class="md-nav__link">
-    Serve model through REST API
+  <a href="#serve-the-model-with-a-rest-api" title="Serve the Model with a REST API" class="md-nav__link">
+    Serve the Model with a REST API
   </a>
   
 </li>
@@ -1210,8 +1210,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#serve-model-through-rest-api" title="Serve model through REST API" class="md-nav__link">
-    Serve model through REST API
+  <a href="#serve-the-model-with-a-rest-api" title="Serve the Model with a REST API" class="md-nav__link">
+    Serve the Model with a REST API
   </a>
   
 </li>
@@ -1249,13 +1249,22 @@
                 
                   <h1>Deep Convolutional Generative Adversarial Networks</h1>
                 
-                <p>Deep Convolutional Generative Adversarial Networks are a class of CNN and one of the first approach which made GAN "stable" and usable to learn features from images in unsupervised learning. This project is a porting from the <a href="https://github.com/pytorch/examples/tree/master/dcgan">pytorch/examples/dcgan</a>. At the end of this example you will be able to use DCGAN for generating images from your dataset.</p>
+                <p>Deep Convolutional Generative Adversarial Networks are a class of CNN and one
+of the first approaches that made GANs stable and usable for learning
+features from images in unsupervised learning. This project is a port of the
+<a href="https://github.com/pytorch/examples/tree/master/dcgan">pytorch/examples/dcgan</a>.
+At the end of this example you will be able to use DCGANs for generating images
+from your dataset.</p>
 <p><img alt="Generated images" src="../../img/lfw-300epochs.gif" /></p>
-<p>In this guide we will train a <a href="http://pytorch.org/">Pytorch</a> model in an unsupervised task and use it to
-generate images from an input vector Z(100 dimensional uniform distribution). Finally we will deploy the trained model as a
-REST endpoint that can be used to generate images in real time.</p>
+<p>In this guide we will train a <a href="http://pytorch.org/">Pytorch</a> model in an
+unsupervised task and use it to generate images from an input vector Z(100
+dimensional uniform distribution). Finally, we will deploy the trained model as
+a REST endpoint that can be used to generate images in real time.</p>
 <h2 id="project-setup">Project setup<a class="headerlink" href="#project-setup" title="Permanent link">&para;</a></h2>
-<p>The code for this project is available on this <a href="https://github.com/ReDeiPirati/dcgan.git">Github repository</a>. Once <a href="../../commands/login">logged in</a>, clone the project and <a href="../../commands/init">initialize</a> a floyd project.</p>
+<p>The code for this project is available on this <a href="https://github.com/ReDeiPirati/dcgan.git">GitHub
+repository</a>. Once <a href="../../commands/login">logged
+in</a>, clone the project and <a href="../../commands/init">initialize</a> a
+floyd project.</p>
 <div class="codehilite"><pre><span></span>$ git clone https://github.com/ReDeiPirati/dcgan.git
 $ <span class="nb">cd</span> dcgan
 $ floyd init dcgan
@@ -1263,46 +1272,67 @@ $ floyd init dcgan
 
 <h2 id="training">Training<a class="headerlink" href="#training" title="Permanent link">&para;</a></h2>
 <h3 id="dataset">Dataset<a class="headerlink" href="#dataset" title="Permanent link">&para;</a></h3>
-<p>For this project we will use the <a href="http://vis-www.cs.umass.edu/lfw/">Labeled Faces in the Wild Home</a> aka LFW for the training.
-Since we are learning in an unsupervised regime, there is not a train/dev/test split, but we use the BCE Loss Error of the Discriminator and Generator as good metrics to learn(minmax game strategy from Game Theory), moreover we can visualize the generated images every epoch.
+<p>For this project we will use the <a href="http://vis-www.cs.umass.edu/lfw/">Labeled Faces in the Wild Home</a>, aka LFW, for the training.
+Since we are learning in an unsupervised regime, there is not a train/dev/test split, but we use the BCE Loss Error of the Discriminator and Generator as good metrics to learn (minmax game strategy from Game Theory). Moreover, we can visualize the generated images every epoch.
 This preprocessed dataset is available publicly on
 <a href="https://www.floydhub.com/redeipirati/datasets/lfw/">FloydHub</a>.</p>
 <h3 id="training_1">Training<a class="headerlink" href="#training_1" title="Permanent link">&para;</a></h3>
 <p>You can train the DCGAN model by running <code class="codehilite">main.py</code> script with required
-parameters. Below is the <a href="../../commands/run">command</a> to start a training job on Floyd:</p>
-<div class="codehilite"><pre><span></span>$ floyd run --gpu --env pytorch-0.2 --data redeipirati/datasets/lfw/1:lfw <span class="s2">&quot;python main.py --dataset lfw --dataroot /lfw --outf /output --cuda --ngpu 1 --niter 20&quot;</span>
+parameters. Below is the <a href="../../commands/run">command</a> to start the training job on Floyd:</p>
+<div class="codehilite"><pre><span></span>$ floyd run <span class="se">\</span>
+--gpu <span class="se">\</span>
+--env pytorch-0.2 <span class="se">\</span>
+--data redeipirati/datasets/lfw/1:lfw <span class="se">\</span>
+<span class="s2">&quot;python main.py --dataset lfw --dataroot /lfw --outf /output --cuda --ngpu 1 --niter 20&quot;</span>
 </pre></div>
 
 <p>Notes:</p>
 <ul>
-<li>The input dataset is passed using the <code class="codehilite">--data</code> parameter. This mounts the pre-processed
-LFW dataset at <code class="codehilite">/lfw</code> path. You will notice that the dataroot parameter uses files
-mounted in this path.</li>
-<li>The data name <a href="https://www.floydhub.com/redeipirati/datasets/lfw/1">redeipirati/datasets/lfw/1</a>
-points to on of the pre-processed dataset on FloydHub, substitute USER and VERSION with ones of the public dataset available</li>
-<li>The job is running on a gpu instance with cuda enabled (Because of the <code class="codehilite">--gpu</code> and <code class="codehilite">--cuda</code> flags ).</li>
-<li>This project uses pytorch installed on Python 3. (See the <code class="codehilite">--env</code> flag)</li>
+<li><code class="codehilite">--gpu</code> ensures the job will run on a GPU server.</li>
+<li><code class="codehilite">--env pytorch-0.2</code> ensures the job will be run in FloydHub's <code class="codehilite">pytorch-0.2</code>
+  environment.</li>
+<li>The input dataset is passed using <code class="codehilite">--data redeipirati/datasets/lfw/1:lfw</code>.
+  This mounts the pre-processed LFW dataset (available
+  <a href="https://www.floydhub.com/redeipirati/datasets/lfw/1">here</a> under FloydHub
+  user <a href="https://www.floydhub.com/redeipirati">@redeipirati</a>'s account) at
+  <code class="codehilite">/lfw</code>. Also note that <code class="codehilite">main.py</code>'s <code class="codehilite">--dataroot</code> flag specifies <code class="codehilite">/lfw</code> as the
+  path where the data will be available. This ensures that the
+  <a href="../../getstarted/core_concepts/#connecting-code-and-datasets">code knows where to find the dataset</a>.</li>
 </ul>
 <p>This job takes about 20 minutes to run and generate a model. You can follow along the progress
 by using the <a href="../../commands/logs/">logs</a> command. If you run the model with default value it will take about 1-5 minutes per epoch.</p>
 <div class="codehilite"><pre><span></span>$ floyd logs &lt;JOB_NAME&gt; -t
 </pre></div>
 
-<p>Floyd saves any content stored in the <code class="codehilite">/output</code> directory after the job is
-finished. This output can be used as a datasource in the next project.  To get
-the name of the output generated by your job use the
-<a href="../../commands/info/">info</a> command.</p>
+<p>Floyd saves any content stored in the <code class="codehilite">/output</code> directory at the end of the
+job. This output can be used as a datasource in the next project. To get the
+name of the output generated by your job use the <a href="../../commands/info/">info</a>
+command.</p>
 <div class="codehilite"><pre><span></span>$ floyd info &lt;JOB_NAME&gt;
 </pre></div>
 
 <h2 id="evaluating">Evaluating<a class="headerlink" href="#evaluating" title="Permanent link">&para;</a></h2>
-<p>To evaluate your model you can run the <code class="codehilite">generate.py</code> script. The script needs the path of a checkpoint Generator model .
-The output will be created in the folder you will provide as parameter(--outf) or in the <code class="codehilite">/output</code> default path to be Floydhub compliant.
-Moreover you can provide a serialized Zvector(--Zvector) to experiment with latent Z vector arithmetic landscape and for analyzing the semantic information encoded during training.</p>
-<div class="codehilite"><pre><span></span>floyd run --gpu --env pytorch-0.2  --data &lt;REPLACE_WITH_JOB_OUTPUT_NAME&gt;:model <span class="s2">&quot;python generate.py --netG /model/&lt;REPLACE_WITH_MODEL_CHECKPOINT_PATH&gt; --ngpu 1 --cuda&quot;</span>
+<p>To evaluate your model you can run the
+<a href="https://github.com/ReDeiPirati/dcgan/blob/master/generate.py"><code class="codehilite">generate.py</code> script included in the GitHub repository</a>.
+The script needs the path of a checkpoint Generator model, which you pass to
+the script using its <code class="codehilite">--netG</code> flag. Just make sure that you mount the
+checkpoint Generator model at the path you pass to the <code class="codehilite">--netG</code> flag. Below, we
+mount the model at <code class="codehilite">/model</code>. You can also provide a serialized Zvector
+(<code class="codehilite">--Zvector</code>) to experiment with latent Z vector arithmetic landscape and for
+analyzing the semantic information encoded during training.</p>
+<div class="codehilite"><pre><span></span>floyd run <span class="se">\</span>
+--gpu <span class="se">\</span>
+--env pytorch-0.2 <span class="se">\</span>
+--data &lt;REPLACE_WITH_JOB_OUTPUT_NAME&gt;:model <span class="se">\</span>
+<span class="s2">&quot;python generate.py --netG /model/&lt;REPLACE_WITH_MODEL_CHECKPOINT_PATH&gt; --ngpu 1 --cuda&quot;</span>
+</pre></div>
 
-<span class="c1"># Provide a serialized Zvector</span>
-floyd run --gpu --env pytorch-0.2  --data &lt;REPLACE_WITH_JOB_OUTPUT_NAME&gt;:model <span class="s2">&quot;python generate.py --netG /model/&lt;REPLACE_WITH_MODEL_CHECKPOINT_PATH&gt; --Zvector /model/&lt;REPLACE_WITH_SERIALIZED_Z_VECTOR_PATH&gt; --ngpu 1 --cuda&quot;</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Provide a serialized Zvector</span>
+floyd run <span class="se">\</span>
+--gpu <span class="se">\</span>
+--env pytorch-0.2 <span class="se">\</span>
+--data &lt;REPLACE_WITH_JOB_OUTPUT_NAME&gt;:model <span class="se">\</span>
+<span class="s2">&quot;python generate.py --netG /model/&lt;REPLACE_WITH_MODEL_CHECKPOINT_PATH&gt; --Zvector /model/&lt;REPLACE_WITH_SERIALIZED_Z_VECTOR_PATH&gt; --ngpu 1 --cuda&quot;</span>
 </pre></div>
 
 <p>You can track the status of the run with the status or logs command.</p>
@@ -1311,31 +1341,49 @@ $ floyd logs &lt;JOB_NAME&gt; -t
 </pre></div>
 
 <h2 id="improving-your-model">Improving your model<a class="headerlink" href="#improving-your-model" title="Permanent link">&para;</a></h2>
-<p>You may notice that the output does not look great. In fact, the algorithm have not yet learned how to correctly represent a face.
-That is because we ran the training for a small number of iterations. To train a fully working model, try the training step again, this time by setting the flag <code class="codehilite">--niter</code> to a large value, such as 300. In general, about 300/500 epochs(or even more, much more!) are necessary to have an accetable model. (Note: This takes a few hours to run on the GPU instance!).
-Keep in mind that <em>all the class of generative networks are not neither stable nor production ready</em>, this is a exciting field of research and everyone can contribute with new ideas.</p>
+<p>You may notice that the output does not look great. In fact, the algorithm has
+not yet learned how to correctly represent a face.  That is because we ran the
+training for a small number of iterations. To train a fully working model, try
+the training step again, this time setting the flag <code class="codehilite">--niter</code> to a large value,
+such as 300. In general, about 300/500 epochs (or even more, much more!) are
+necessary to have an accetable model. (Note: This takes a few hours to run on
+the GPU instance!)
+Keep in mind that <em>all the classes of generative networks are neither stable
+nor production ready</em>, this is an exciting field of research and everyone can
+contribute with new ideas.</p>
 <h2 id="evaluate-pre-trained-models">Evaluate pre-trained models<a class="headerlink" href="#evaluate-pre-trained-models" title="Permanent link">&para;</a></h2>
-<p>If you want to try out a pre-trained model, FloydHub has a public dataset model with the checkpoints(300 epochs training) for
-this. You can mount it with <code class="codehilite">--data</code>:
-<a href="https://www.floydhub.com/redeipirati/datasets/dcgan-300-epochs-models/1">redeipirati/datasets/dcgan-300-epochs-models/1</a>
-.</p>
-<div class="codehilite"><pre><span></span>floyd run --gpu --env pytorch-0.2  --data redeipirati/datasets/dcgan-300-epochs-models/1:/model <span class="s2">&quot;python generate.py --netG /model/netG_epoch_299.pth --ngpu 1 --cuda&quot;</span>
+<p>If you want to try out a pre-trained model, FloydHub has a public dataset model
+with the checkpoints (300 epochs training) for this located <a href="https://www.floydhub.com/redeipirati/datasets/dcgan-300-epochs-models/1">here</a>. You can mount it with
+<code class="codehilite">--data redeipirati/datasets/dcgan-300-epochs-models/1:/model</code>.</p>
+<div class="codehilite"><pre><span></span>floyd run <span class="se">\</span>
+--gpu <span class="se">\</span>
+--env pytorch-0.2 <span class="se">\</span>
+--data redeipirati/datasets/dcgan-300-epochs-models/1:/model <span class="se">\</span>
+<span class="s2">&quot;python generate.py --netG /model/netG_epoch_299.pth --ngpu 1 --cuda&quot;</span>
 </pre></div>
 
 <p>This model should perform better compared to the previous one. You can also provide the <code class="codehilite">--Zvector</code> parameter to explore the latent Z vector landscape. We have also provided to you the zvector used for evaluating our model in the attached dataset:</p>
-<div class="codehilite"><pre><span></span>floyd run --gpu --env pytorch-0.2  --data redeipirati/datasets/dcgan-300-epochs-models/1:/model <span class="s2">&quot;python generate.py --netG /model/netG_epoch_299.pth --Zvector /model/zvector.pth --ngpu 1 --cuda&quot;</span>
+<div class="codehilite"><pre><span></span>floyd run --gpu <span class="se">\</span>
+--env pytorch-0.2  <span class="se">\</span>
+--data redeipirati/datasets/dcgan-300-epochs-models/1:/model <span class="se">\</span>
+<span class="s2">&quot;python generate.py --netG /model/netG_epoch_299.pth --Zvector /model/zvector.pth --ngpu 1 --cuda&quot;</span>
 </pre></div>
 
-<h2 id="serve-model-through-rest-api">Serve model through REST API<a class="headerlink" href="#serve-model-through-rest-api" title="Permanent link">&para;</a></h2>
-<p>FloydHub supports seving mode for demo and testing purpose. Before serving your model through REST API,
-you need to create a <code class="codehilite">floyd_requirements.txt</code> and declare the flask requirement in it. If you run a job
-with <code class="codehilite">--mode serve</code> flag, FloydHub will run the <code class="codehilite">app.py</code> file in your project
-and attach it to a dynamic service endpoint:</p>
-<div class="codehilite"><pre><span></span>floyd run --gpu --mode serve --env pytorch-0.2  --data &lt;REPLACE_WITH_JOB_OUTPUT_NAME&gt;
+<h2 id="serve-the-model-with-a-rest-api">Serve the Model with a REST API<a class="headerlink" href="#serve-the-model-with-a-rest-api" title="Permanent link">&para;</a></h2>
+<p>FloydHub supports seving mode for demo and testing purposes. Before serving
+your model through a REST API, you need to create a <code class="codehilite">floyd_requirements.txt</code>
+and declare the <code class="codehilite">flask</code> requirement in it. If you run a job with <code class="codehilite">--mode serve</code>
+flag, FloydHub will run the <code class="codehilite">app.py</code> file in your project and attach it to a
+dynamic service endpoint:</p>
+<div class="codehilite"><pre><span></span>floyd run <span class="se">\</span>
+--gpu <span class="se">\</span>
+--mode serve <span class="se">\</span>
+--env pytorch-0.2 <span class="se">\</span>
+--data &lt;REPLACE_WITH_JOB_OUTPUT_NAME&gt;
 </pre></div>
 
 <p>The above command will print out a service endpoint for this job in your terminal console.</p>
-<p>The service endpoint will take couple minutes to become ready. Once it's up, you can interact with the model by sending serialized Zvector file with a POST request or simply generate images from random noise with a GET request(you can also use the ckp parameter to chose a specific checkpoint):</p>
+<p>The service endpoint will take couple minutes to become ready. Once it's up, you can interact with the model by sending a serialized Zvector file with a POST request or simply generate images from random noise with a GET request(you can also use the <code class="codehilite">ckp</code> parameter to chose a specific checkpoint):</p>
 <div class="codehilite"><pre><span></span><span class="c1"># e.g. of a GET req</span>
 curl -X GET -o &lt;NAME_<span class="p">&amp;</span>_PATH_DOWNLOADED_IMG&gt; -F <span class="s2">&quot;ckp=&lt;MODEL_CHECKPOINT&gt;&quot;</span> &lt;SERVICE_ENDPOINT&gt;
 curl -X GET -o prova.png -F <span class="s2">&quot;ckp=netG_epoch_99.pth&quot;</span> https://www.floydhub.com/expose/hellllllllo!!!!
@@ -1349,7 +1397,13 @@ curl -X POST -o prova.png -F <span class="s2">&quot;file=@./parameter/zvector.pt
 once you are done testing, <strong>remember to shutdown the job.</strong></p>
 <p><em>Note that this feature is in preview mode and is not production ready yet</em></p>
 <h2 id="what-next">What Next?<a class="headerlink" href="#what-next" title="Permanent link">&para;</a></h2>
-<p>In the original paper the model was trained on the <a href="http://www.yf.io/p/lsun">LSUN</a> dataset and then, the learned features were used to perform an image classification task on the CIFAR-10 dataset. DCGAN was one of the first "stable" model based on GAN and the first which tried to learn features from images in an unsupervised regime. GAN is an extremely active research area because they can provide an unlimited amount of high quality data which is necessary to train Deep Learning models.</p>
+<p>In the original paper the model was trained on the
+<a href="http://www.yf.io/p/lsun">LSUN</a> dataset, and then the learned features were
+used to perform an image classification task on the CIFAR-10 dataset. DCGAN was
+one of the first stable models based on GAN and the first which tried to
+learn features from images in an unsupervised regime. GAN is an extremely
+active research area because they can provide an unlimited amount of high
+quality data which is necessary to train Deep Learning models.</p>
 <hr />
 <h2 id="help-make-this-document-better">Help make this document better<a class="headerlink" href="#help-make-this-document-better" title="Permanent link">&para;</a></h2>
 <p>This guide, as well as the rest of our docs, are open-source and available on 
