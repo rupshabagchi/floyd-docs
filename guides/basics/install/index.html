@@ -687,6 +687,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#using-virtualenv-to-install-floyd-cli" title="Using virtualenv to install floyd-cli" class="md-nav__link">
+    Using virtualenv to install floyd-cli
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#having-trouble-installing-the-cli" title="Having trouble installing the CLI?" class="md-nav__link">
     Having trouble installing the CLI?
   </a>
@@ -1093,6 +1100,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#using-virtualenv-to-install-floyd-cli" title="Using virtualenv to install floyd-cli" class="md-nav__link">
+    Using virtualenv to install floyd-cli
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#having-trouble-installing-the-cli" title="Having trouble installing the CLI?" class="md-nav__link">
     Having trouble installing the CLI?
   </a>
@@ -1125,7 +1139,7 @@
                 
                   <h1>Install Floyd CLI</h1>
                 
-                <p>Floyd CLI is a python based command line tool to interact with FloydHub from your terminal.</p>
+                <p>wloyd CLI is a python-based command line tool to interact with FloydHub from your terminal.</p>
 <p><code class="codehilite">floyd-cli</code> is available on <a href="https://pypi.python.org/pypi/floyd-cli">pypi</a> and
 runs on both Python 2.7 and Python 3.5.</p>
 <p>Use pip to install the CLI.</p>
@@ -1148,6 +1162,23 @@ Usage: floyd <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <sp
 </pre></div>
 
 <p>Detailed documentation for the floyd commands is available in the <a href="../../../commands/">documentation</a>.</p>
+<h2 id="using-virtualenv-to-install-floyd-cli">Using virtualenv to install floyd-cli<a class="headerlink" href="#using-virtualenv-to-install-floyd-cli" title="Permanent link">&para;</a></h2>
+<p>We highly recommend using <a href="https://virtualenv.pypa.io/en/stable/userguide/">virtualenv</a> for installing and using <code class="codehilite">floyd-cli</code>. This helps avoid any library version conflicts and results in a smoother installation process.</p>
+<div class="codehilite"><pre><span></span>sudo pip install virtualenv
+</pre></div>
+
+<p>To create a virtualenv, you need to pass a path to store the installed packages.</p>
+<div class="codehilite"><pre><span></span>virtualenv ~/floyd
+</pre></div>
+
+<p>You can now activate and start using the virtualenv by running:
+<div class="codehilite"><pre><span></span><span class="nb">source</span> ~/floyd/bin/activate
+</pre></div></p>
+<p>To install floyd-cli in this virtualenv:</p>
+<div class="codehilite"><pre><span></span>pip install -U floyd-cli
+</pre></div>
+
+<p>You are now ready to use the <a href="http://docs.floydhub.com/commands/">floyd commands</a>. Note: You need to activate your virtualenv using the <code class="codehilite">source</code> command above each time you open a new terminal and want to use <code class="codehilite">floyd-cli</code> in it.</p>
 <h2 id="having-trouble-installing-the-cli">Having trouble installing the CLI?<a class="headerlink" href="#having-trouble-installing-the-cli" title="Permanent link">&para;</a></h2>
 <p>See the list of <a href="../../../faqs/installation/">FAQs related to installation</a>.</p>
 <hr />
