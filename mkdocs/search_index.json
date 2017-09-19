@@ -1974,6 +1974,16 @@
             "location": "/faqs/billing/#help-make-this-document-better", 
             "text": "This guide, as well as the rest of our docs, are open-source and available on  GitHub . We welcome your contributions.   Suggest an edit to this page (by clicking the edit icon at the top next to the title).  Open an issue about this page  to report a problem.", 
             "title": "Help make this document better"
+        }, 
+        {
+            "location": "/home/using_datasets/", 
+            "text": "Redirecting...", 
+            "title": ""
+        }, 
+        {
+            "location": "/home/using_datasets/#redirecting", 
+            "text": "", 
+            "title": "Redirecting..."
         }
     ]
 }
