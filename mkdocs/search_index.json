@@ -1994,6 +1994,26 @@
             "location": "/home/using_datasets/#redirecting", 
             "text": "", 
             "title": "Redirecting..."
+        }, 
+        {
+            "location": "/home/install/", 
+            "text": "Redirecting...", 
+            "title": ""
+        }, 
+        {
+            "location": "/home/install/#redirecting", 
+            "text": "", 
+            "title": "Redirecting..."
+        }, 
+        {
+            "location": "/home/getting_started/", 
+            "text": "Redirecting...", 
+            "title": ""
+        }, 
+        {
+            "location": "/home/getting_started/#redirecting", 
+            "text": "", 
+            "title": "Redirecting..."
         }
     ]
 }
