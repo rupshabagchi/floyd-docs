@@ -4,7 +4,7 @@
     
     <url>
      <loc>https://www.floydhub.com/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,19 +13,19 @@
         
     <url>
      <loc>https://www.floydhub.com/getstarted/core_concepts/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/getstarted/quick_start/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/getstarted/quick_start_jupyter/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -35,13 +35,13 @@
         
     <url>
      <loc>https://www.floydhub.com/guides/basics/create_new/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/guides/basics/delete/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -51,31 +51,31 @@
         
     <url>
      <loc>https://www.floydhub.com/guides/delete_job/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/guides/jobs/tensorboard/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/guides/floyd_ignore/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/guides/ssh/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/faqs/job/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -85,25 +85,25 @@
         
     <url>
      <loc>https://www.floydhub.com/guides/create_and_upload_dataset/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/guides/delete_dataset/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/guides/data/mounting_data/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/guides/data/symlink_mounted_data/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -113,31 +113,31 @@
         
     <url>
      <loc>https://www.floydhub.com/guides/environments/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/guides/jobs/installing_dependencies/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/guides/basics/using_gpu/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/faqs/environments/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/guides/ssh/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -147,31 +147,31 @@
         
     <url>
      <loc>https://www.floydhub.com/guides/data/storing_output/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/guides/delete_output/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/guides/download_output/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/guides/browse_output/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/guides/reusing_output/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -181,13 +181,13 @@
         
     <url>
      <loc>https://www.floydhub.com/guides/basics/install/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/guides/basics/login/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -203,19 +203,19 @@
         
     <url>
      <loc>https://www.floydhub.com/examples/style_transfer/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/examples/deep_corrector/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/examples/dcgan/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -225,31 +225,31 @@
         
     <url>
      <loc>https://www.floydhub.com/faqs/installation/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/faqs/authentication/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/faqs/job/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/faqs/plans/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.floydhub.com/faqs/billing/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -258,7 +258,7 @@
     
     <url>
      <loc>https://www.floydhub.com/home/using_datasets/</loc>
-     <lastmod>2017-09-18</lastmod>
+     <lastmod>2017-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
