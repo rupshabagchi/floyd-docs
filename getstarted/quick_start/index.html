@@ -481,8 +481,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guides/delete_job/" title="Delete a Job" class="md-nav__link">
-      Delete a Job
+    <a href="../../guides/run_a_job/" title="Run a Job" class="md-nav__link">
+      Run a Job
     </a>
   </li>
 
@@ -507,6 +507,18 @@
   <li class="md-nav__item">
     <a href="../../guides/jobs/tensorboard/" title="Enable Tensorboard" class="md-nav__link">
       Enable Tensorboard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/delete_job/" title="Delete a Job" class="md-nav__link">
+      Delete a Job
     </a>
   </li>
 
@@ -1415,9 +1427,9 @@ Project <span class="s2">&quot;quick-start&quot;</span> initialized in the curre
 <p>For this tutorial, we'll run the <code class="codehilite">mnist_cnn.py</code> Python script on FloydHub's GPU servers to train our convolutional neural network model against the MNIST data.</p>
 <div class="codehilite"><pre><span></span>$ floyd run --gpu --env tensorflow <span class="s2">&quot;python mnist_cnn.py&quot;</span>
 Syncing code ...
-RUN ID                  NAME               
-----------------------  -------------------
-AKpnXqj9BEU6d8KhmygTyb  alice/quick-start/1
+NAME               
+-------------------
+alice/quick-start/1
 
 To view the logs enter:
     floyd logs alice/quick-start/1
@@ -1435,9 +1447,9 @@ To view the logs enter:
 <h2 id="monitoring-your-job">Monitoring your Job<a class="headerlink" href="#monitoring-your-job" title="Permanent link">&para;</a></h2>
 <p>You can view the status of your Job from your terminal using the <a href="../../commands/status/"><code class="codehilite">floyd status</code></a> command. You can specify a single Job name (e.g. <code class="codehilite">floyd status alice/quick-start/1</code>) to get its status, or the <code class="codehilite">floyd-cli</code> will show the status of all Jobs in the current Project.</p>
 <div class="codehilite"><pre><span></span>$ floyd status
-RUN ID                  CREATED        STATUS    DURATION<span class="o">(</span>s<span class="o">)</span>  NAME                 INSTANCE    DESCRIPTION
-----------------------  ---------      --------  -----------  -------------------  ---------   -----------
-AKpnXqj9BEU6d8KhmygTyb  just now       running            <span class="m">15</span>  alice/quick-start:1  gpu         
+JOB NAME             CREATED        STATUS    DURATION<span class="o">(</span>s<span class="o">)</span>  INSTANCE    DESCRIPTION
+-------------------  ---------      --------  -----------  ---------   -----------
+alice/quick-start:1  just now       running            <span class="m">15</span>  gpu         
 </pre></div>
 
 <p>You can also view the status of your job in your browser by visiting the <code class="codehilite">Job URL</code> printed by the <code class="codehilite">floyd run</code> command. For example, <code class="codehilite">https://www.floydhub.com/alice/quick-start/1</code></p>

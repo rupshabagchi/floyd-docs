@@ -8,7 +8,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://www.floydhub.com/guides/delete_dataset/">
+        <link rel="canonical" href="https://www.floydhub.com/guides/run_a_job/">
       
       
         <meta name="author" content="FloydHub Team">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Delete a Dataset - FloydHub</title>
+        <title>Run a Job - FloydHub</title>
       
     
     
@@ -86,11 +86,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  Data
+                  Jobs
                 </span>
               
             
-            Delete a Dataset
+            Run a Job
           
         </span>
       </div>
@@ -317,8 +317,10 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
@@ -336,11 +338,172 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../run_a_job/" title="Run a Job" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Run a Job
+      </label>
+    
+    <a href="./" title="Run a Job" class="md-nav__link md-nav__link--active">
       Run a Job
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parts-of-the-floyd-run-command" title="Parts of the floyd run Command" class="md-nav__link">
+    Parts of the floyd run Command
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#options" title="[OPTIONS]" class="md-nav__link">
+    [OPTIONS]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command" title="[COMMAND]" class="md-nav__link">
+    [COMMAND]
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options_1" title="[OPTIONS]" class="md-nav__link">
+    [OPTIONS]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instance-type" title="Instance Type" class="md-nav__link">
+    Instance Type
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-a-preemptible-and-a-dedicated-instance" title="What is the difference between a preemptible and a dedicated instance?" class="md-nav__link">
+    What is the difference between a preemptible and a dedicated instance?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datasets" title="Dataset(s)" class="md-nav__link">
+    Dataset(s)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mode" title="Mode" class="md-nav__link">
+    Mode
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-mode-job" title="--mode job" class="md-nav__link">
+    --mode job
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-mode-jupyter" title="--mode jupyter" class="md-nav__link">
+    --mode jupyter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-mode-serve" title="--mode serve" class="md-nav__link">
+    --mode serve
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment" title="Environment" class="md-nav__link">
+    Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message" title="Message" class="md-nav__link">
+    Message
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tensorboard" title="Tensorboard" class="md-nav__link">
+    Tensorboard
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command_1" title="[COMMAND]" class="md-nav__link">
+    [COMMAND]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#help-make-this-document-better" title="Help make this document better" class="md-nav__link">
+    Help make this document better
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -425,10 +588,8 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
@@ -458,56 +619,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Delete a Dataset
-      </label>
-    
-    <a href="./" title="Delete a Dataset" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../delete_dataset/" title="Delete a Dataset" class="md-nav__link">
       Delete a Dataset
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#deleting-an-uploaded-datasource" title="Deleting an uploaded datasource" class="md-nav__link">
-    Deleting an uploaded datasource
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#deleting-an-uploaded-datasource-from-cli" title="Deleting an uploaded datasource from CLI" class="md-nav__link">
-    Deleting an uploaded datasource from CLI
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1144,22 +1260,138 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#deleting-an-uploaded-datasource" title="Deleting an uploaded datasource" class="md-nav__link">
-    Deleting an uploaded datasource
+  <a href="#parts-of-the-floyd-run-command" title="Parts of the floyd run Command" class="md-nav__link">
+    Parts of the floyd run Command
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#deleting-an-uploaded-datasource-from-cli" title="Deleting an uploaded datasource from CLI" class="md-nav__link">
-    Deleting an uploaded datasource from CLI
+  <a href="#options" title="[OPTIONS]" class="md-nav__link">
+    [OPTIONS]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command" title="[COMMAND]" class="md-nav__link">
+    [COMMAND]
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options_1" title="[OPTIONS]" class="md-nav__link">
+    [OPTIONS]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instance-type" title="Instance Type" class="md-nav__link">
+    Instance Type
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-a-preemptible-and-a-dedicated-instance" title="What is the difference between a preemptible and a dedicated instance?" class="md-nav__link">
+    What is the difference between a preemptible and a dedicated instance?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datasets" title="Dataset(s)" class="md-nav__link">
+    Dataset(s)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mode" title="Mode" class="md-nav__link">
+    Mode
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-mode-job" title="--mode job" class="md-nav__link">
+    --mode job
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-mode-jupyter" title="--mode jupyter" class="md-nav__link">
+    --mode jupyter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-mode-serve" title="--mode serve" class="md-nav__link">
+    --mode serve
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment" title="Environment" class="md-nav__link">
+    Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message" title="Message" class="md-nav__link">
+    Message
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tensorboard" title="Tensorboard" class="md-nav__link">
+    Tensorboard
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command_1" title="[COMMAND]" class="md-nav__link">
+    [COMMAND]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#help-make-this-document-better" title="Help make this document better" class="md-nav__link">
+    Help make this document better
+  </a>
   
 </li>
       
@@ -1177,36 +1409,263 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/floydhub/floyd-docs/edit/master/docs/guides/delete_dataset.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/floydhub/floyd-docs/edit/master/docs/guides/run_a_job.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                  <h1>Delete a Dataset</h1>
+                  <h1>Run a Job</h1>
                 
-                <p>To delete a dataset, click the <strong>Delete dataset</strong> button on the <code class="codehilite">Settings</code> tab
-of the dataset on the web dashboard.</p>
-<p>Example: <code class="codehilite">https://www.floydhub.com/alice/datasets/quick-start/settings</code></p>
-<p><img alt="Dataset settings" src="../../../img/dataset-settings.jpg" />
-<img alt="Delete dataset" src="../../../img/delete-dataset.jpg" /></p>
+                <div class="admonition important">
+<p class="admonition-title">Quick Look</p>
+<p><code class="codehilite">floyd run [OPTIONS] [COMMAND]</code></p>
+<p><strong><a href="#options_1">[OPTIONS]</a>:</strong></p>
+<ul>
+<li><a href="#instance-type">Instance Type</a>: <code class="codehilite">--cpu</code> <strong>or</strong> <code class="codehilite">--gpu</code> <strong>or</strong> <code class="codehilite">--cpu+</code> <strong>or</strong> <code class="codehilite">--gpu+</code></li>
+<li><a href="#datasets">Dataset(s)</a>: <code class="codehilite">--data &lt;name_of_datasource&gt;:&lt;mount_point_on_server&gt;</code></li>
+<li><a href="#mode">Mode</a>: <code class="codehilite">--mode &lt;mode_name&gt;</code></li>
+<li><a href="#environment">Environment</a>: <code class="codehilite">--env &lt;environment_name&gt;</code></li>
+<li><a href="#message">Message</a> <code class="codehilite">--message</code> or <code class="codehilite">-m</code></li>
+<li><a href="#tensorboard">Tensorboard</a>: <code class="codehilite">--tensorboard</code></li>
+</ul>
+<p><strong><a href="#command_1">[COMMAND]</a></strong></p>
+</div>
+<p>Running jobs is the core action in the FloydHub workflow. A job pulls together
+your code and dataset(s), sends them to a deep-learning server configured with
+the right environment, and actually kicks off the necessary code to get the
+data science done. This article serves as a more in-depth look at the
+ins-and-outs of running jobs on FloydHub using the <code class="codehilite">floyd run</code> command.</p>
+<p>The <code class="codehilite">floyd run</code> command can be broken down into the two main parts: the
+<code class="codehilite">[OPTIONS]</code>, and the <code class="codehilite">[COMMAND]</code>. We'll detail all the <code class="codehilite">[OPTIONS]</code> available to
+you, as well as how to use the <code class="codehilite">[COMMAND]</code> properly. Use the links below as a
+quick reference.</p>
+<h2 id="parts-of-the-floyd-run-command">Parts of the <code class="codehilite">floyd run</code> Command<a class="headerlink" href="#parts-of-the-floyd-run-command" title="Permanent link">&para;</a></h2>
+<h3 id="options"><a href="#options_1">[OPTIONS]</a><a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="o">-</span> <span class="p">[</span><span class="n">Instance</span> <span class="n">Type</span><span class="p">](</span><span class="err">#</span><span class="n">instance</span><span class="o">-</span><span class="n">type</span><span class="p">)</span><span class="o">:</span> <span class="err">`</span><span class="o">--</span><span class="n">cpu</span><span class="err">`</span> <span class="o">**</span><span class="n">or</span><span class="o">**</span> <span class="err">`</span><span class="o">--</span><span class="n">gpu</span><span class="err">`</span> <span class="o">**</span><span class="n">or</span><span class="o">**</span> <span class="err">`</span><span class="o">--</span><span class="n">cpu</span><span class="o">+</span><span class="err">`</span> <span class="o">**</span><span class="n">or</span><span class="o">**</span> <span class="err">`</span><span class="o">--</span><span class="n">gpu</span><span class="o">+</span><span class="err">`</span>
+</pre></div>
+
+
+<ul>
+<li><a href="#datasets">Dataset(s)</a>: <code class="codehilite">--data</code></li>
+<li><a href="#mode">Mode</a>: <code class="codehilite">--mode</code></li>
+<li><a href="#environment">Environment</a>: <code class="codehilite">--env</code></li>
+<li><a href="#message">Message</a> <code class="codehilite">--message -m</code></li>
+<li><a href="#tensorboard">Tensorboard</a>: <code class="codehilite">--tensorboard</code></li>
+</ul>
+<h3 id="command"><a href="#command_1">[COMMAND]</a><a class="headerlink" href="#command" title="Permanent link">&para;</a></h3>
+<h2 id="options_1">[OPTIONS]<a class="headerlink" href="#options_1" title="Permanent link">&para;</a></h2>
+<h3 id="instance-type">Instance Type<a class="headerlink" href="#instance-type" title="Permanent link">&para;</a></h3>
+<p>To specify the instance type means to choose what kind of FloydHub instance
+your job will run on. Think of this as a hardware choice rather than a software
+one. (The software environment is declared with the
+<a href="#environment">Environment (<code class="codehilite">--env</code>)</a> <code class="codehilite">OPTION</code> of <code class="codehilite">floyd run</code> command.)</p>
+<p>You have four instance type options to choose from when running a job as
+detailed below:</p>
+<table>
+<thead>
+<tr>
+<th align="left"><code class="codehilite">floyd run</code> Flag</th>
+<th align="center">Instance Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code class="codehilite">--gpu</code></td>
+<td align="center">GPU</td>
+<td align="left">Preemptible GPU server</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">--gpu+</code></td>
+<td align="center">GPU</td>
+<td align="left">Dedicated GPU server</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">--cpu</code></td>
+<td align="center">CPU</td>
+<td align="left">Preemptible CPU server</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">--cpu+</code></td>
+<td align="center">CPU</td>
+<td align="left">Dedicated CPU server</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Deleting a dataset will delete all its individual versions of data. This
-<strong>cannot</strong> be restored. Please be absolutely sure you want to delete a
-dataset before proceeding.</p>
+<ul>
+<li>The default instance flag is <code class="codehilite">--cpu</code>. This means that if you don't pass
+  any of the above flags to <code class="codehilite">floyd run</code>, your job will be run on a
+  preemptible CPU server.</li>
+<li>If you pass more than one instance flag, this is the order of precedence:
+  <code class="codehilite">--gpu+</code>, <code class="codehilite">--cpu+</code>, <code class="codehilite">--gpu</code>, <code class="codehilite">--cpu</code></li>
+</ul>
 </div>
-<p>We recommend deleting individual data versions rather than the entire dataset.</p>
-<h2 id="deleting-an-uploaded-datasource">Deleting an uploaded datasource<a class="headerlink" href="#deleting-an-uploaded-datasource" title="Permanent link">&para;</a></h2>
-<p>You can delete a particular version of a Dataset by clicking on <strong>Delete data</strong>
-button on the Settings tab of the data's page on the web dashboard.</p>
-<p>Example: <code class="codehilite">https://www.floydhub.com/alice/datasets/quick-start/1/settings</code></p>
-<p><img alt="Delete data" src="../../../img/delete-data.jpg" /></p>
-<h3 id="deleting-an-uploaded-datasource-from-cli">Deleting an uploaded datasource from CLI<a class="headerlink" href="#deleting-an-uploaded-datasource-from-cli" title="Permanent link">&para;</a></h3>
-<p>You can also delete an uploaded datasource from the CLI using the <a href="../../../commands/data#floyd-data-delete">floyd data
-delete</a> command.</p>
-<div class="codehilite"><pre><span></span>$ floyd data delete alice/datasets/quick-start/1
-
-Delete Data: alice/quick-start/1? <span class="o">[</span>y/N<span class="o">]</span>: y
-Data alice/datasets/quick-start/1: Deleted
+<h4 id="what-is-the-difference-between-a-preemptible-and-a-dedicated-instance">What is the difference between a preemptible and a dedicated instance?<a class="headerlink" href="#what-is-the-difference-between-a-preemptible-and-a-dedicated-instance" title="Permanent link">&para;</a></h4>
+<p>Refer to <a href="../../faqs/plans/#preemptible-vs-dedicated-instances">this section</a></p>
+<h3 id="datasets">Dataset(s)<a class="headerlink" href="#datasets" title="Permanent link">&para;</a></h3>
+<p>You can specify up to five datasources (datasets or outputs from previous jobs)
+to mount to the server that will be running your job. For each datasource,
+specify the <code class="codehilite">--data</code> flag as detailed below:</p>
+<div class="codehilite"><pre><span></span>--data &lt;name_of_datasource&gt;:&lt;mount_point_on_server&gt;
 </pre></div>
+
+<p>For more detailed information on mounting data to jobs, see
+<a href="../../guides/data/mounting_data">this article</a></p>
+<h3 id="mode">Mode<a class="headerlink" href="#mode" title="Permanent link">&para;</a></h3>
+<p>FloydHub jobs can currently be run in one of three modes:</p>
+<ol>
+<li><code class="codehilite">--mode job</code> (DEFAULT)</li>
+<li><code class="codehilite">--mode jupyter</code></li>
+<li><code class="codehilite">--mode serve</code></li>
+</ol>
+<p>Here is a description of each mode:</p>
+<h4 id="-mode-job"><code class="codehilite">--mode job</code><a class="headerlink" href="#-mode-job" title="Permanent link">&para;</a></h4>
+<p>This is the default mode so there is no need to specify <code class="codehilite">--mode job</code> when
+running <code class="codehilite">floyd run</code>. You can think of this mode as "regular mode" or "command
+mode". When you run your job in this mode, your code is sent up to a FloydHub
+deep-learning server and the <a href="#command">[COMMAND]</a> portion of <code class="codehilite">floyd run</code>
+is executed.</p>
+<h4 id="-mode-jupyter"><code class="codehilite">--mode jupyter</code><a class="headerlink" href="#-mode-jupyter" title="Permanent link">&para;</a></h4>
+<p>This is Jupyter Notebook mode. When you specify <code class="codehilite">--mode jupyter</code>, your code is
+uploaded to a FloydHub deep-learning server, and a Jupyter Notebook session is
+started in the directory containing your code.</p>
+<p>FloyHub serves this Jupyter Notebook session for you. Your Jupyter Notebook
+session will be automatically opened in a web browser when it becomes
+available. If you don't want your browser to automatcially open, pass the <code class="codehilite">--no-open</code> flag to <code class="codehilite">floyd run</code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Use This Mode When:</p>
+<ol>
+<li>You want to work with a <strong>Jupyter Notebook</strong>.</li>
+<li>You want to open an <strong>interactive shell</strong> on the FloydHub server where your code
+   is running. For details on how to do that, see <a href="../../guides/ssh">this article</a></li>
+</ol>
+</div>
+<h4 id="-mode-serve"><code class="codehilite">--mode serve</code><a class="headerlink" href="#-mode-serve" title="Permanent link">&para;</a></h4>
+<p>This mode is for serving your deep learning models as an API endpoint. To use
+serve mode, you'll need to make sure your project's code meets a few
+requirements:</p>
+<ul>
+<li>Contains a file called <code class="codehilite">app.py</code> that contains a Flask application that will
+  listen on port 5000.</li>
+<li>Contains a <code class="codehilite">requirements.txt</code> file that contains the line <code class="codehilite">flask</code>, which
+  declares it as a dependency.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This mode is currently in preview, and is not appropriate for production
+use.</p>
+</div>
+<h3 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h3>
+<p>Specifying the environment means choosing what major deep-learning software
+packages you want available on the server that runs your code. This is not a
+specification between a CPU server and a GPU server (that's the
+<a href="#instance-type">Instance Type</a> <code class="codehilite">OPTION</code> of <code class="codehilite">floyd run</code>).</p>
+<p>FloydHub offers servers with many different deep-learning software packages
+pre-installed.  You can find a list of all the available environments
+<a href="../../guides/environments">here</a>.</p>
+<p>Use the <code class="codehilite">--env</code> flag to specify which environment you would like your job to
+run in.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>It is best practice to pass the entire name of the environment,
+including the version number, to the <code class="codehilite">--env</code> flag. For example, instead of
+<code class="codehilite">--env tensorflow</code>, use <code class="codehilite">--env tensorflow-1.3</code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Examples</p>
+<div class="codehilite"><pre><span></span>$ floyd run --env tensorflow-1.3 <span class="s2">&quot;python train.py&quot;</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>$ floyd run --env theano-0.8 <span class="s2">&quot;python train.py&quot;</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>$ floyd run --env pytorch-0.2 <span class="s2">&quot;python train.py&quot;</span>
+</pre></div>
+
+</div>
+<h3 id="message">Message<a class="headerlink" href="#message" title="Permanent link">&para;</a></h3>
+<p>Using <code class="codehilite">--message</code> or <code class="codehilite">-m</code>, you can specify a message that describes your job,
+similiar to the way a commit message describes a git commit. The job message
+will be displayed at various places on floydhub.com and is useful when
+reviewing past jobs that you'd like to iterate on.</p>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span>$ floyd run -m <span class="s2">&quot;lorem ipsum&quot;</span> <span class="s2">&quot;python my_first_script.py&quot;</span>
+Creating project run. Total upload size: <span class="m">195</span>.0B
+Syncing code ...
+<span class="o">[================================]</span> <span class="m">1254</span>/1254 - <span class="m">00</span>:00:00
+
+JOB NAME
+--------------------------------
+mckay/projects/message-project/1
+
+To view logs enter:
+   floyd logs mckay/projects/message-project/1
+</pre></div>
+
+<p>Here are some examples of where the job message will be displayed on floydhub.com:</p>
+<p><img alt="Job Message on Job Detail Page" src="../../img/job_detail_message.jpg" />
+<img alt="Job Message on Project Detail Page" src="../../img/project_detail_job_message.jpg" /></p>
+<h3 id="tensorboard">Tensorboard<a class="headerlink" href="#tensorboard" title="Permanent link">&para;</a></h3>
+<p>The <code class="codehilite">--tensorboard</code> flag allows you to enable Tensorboard on your job. For more details, see <a href="../../guides/jobs/tensorboard">this article</a>.</p>
+<h2 id="command_1">[COMMAND]<a class="headerlink" href="#command_1" title="Permanent link">&para;</a></h2>
+<p>The <code class="codehilite">[COMMAND]</code> portion of <code class="codehilite">floyd run</code> is the command that will be executed on
+the server when your job begins. It will be run in the directory on the server
+that holds your code. To decide what to put in the <code class="codehilite">[COMMAND]</code>, answer this
+question:</p>
+<blockquote>
+<p>What command would I execute to kick off my code locally?</p>
+</blockquote>
+<p>The answer to that question is what you should put into the <code class="codehilite">[COMMAND]</code> portion
+of <code class="codehilite">floyd run</code>.</p>
+<p>Any valid <code class="codehilite">bash</code> command will work in the <code class="codehilite">[COMMAND]</code> portion of <code class="codehilite">floyd run</code>.
+For example, try these simple examples and look at their logs:</p>
+<div class="codehilite"><pre><span></span>$ floyd run <span class="s2">&quot;pwd&quot;</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>$ floyd run <span class="s2">&quot;ls&quot;</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>$ floyd run <span class="s2">&quot;python -v&quot;</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>$ floyd run <span class="s2">&quot;echo &#39;Hello, world!&#39;&quot;</span>
+</pre></div>
+
+<p>Most commonly you'll be kicking off a Python script with your <code class="codehilite">[COMMAND]</code>, with
+something like this:</p>
+<div class="codehilite"><pre><span></span>$ floyd run <span class="s2">&quot;python train.py&quot;</span>
+</pre></div>
+
+<p>But you can feel free to get creative!</p>
+<div class="admonition important">
+<p class="admonition-title">Pro Tip</p>
+<p>Try chaining together multiple commands with <code class="codehilite">&amp;&amp;</code> like this:</p>
+<div class="codehilite"><pre><span></span>$ floyd run <span class="s2">&quot;bash my_setup_script.sh &amp;&amp; python train.py&quot;</span>
+</pre></div>
+
+<p>For more examples, check out our
+<a href="../../guides/data/symlink_mounted_data/#1-using-the-command-portion-of-floyd-run">symlinking tutorial</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Jupyter Note book mode (<code class="codehilite">--mode jupyter</code>) and serve mode (<code class="codehilite">--mode serve</code>)
+do not take a <code class="codehilite">[COMMAND]</code>. You'll kick off your job without passing a
+<code class="codehilite">[COMMAND],</code> with something like the following:</p>
+<div class="codehilite"><pre><span></span>$ floyd run --env pytorch-0.2 --mode jupyter
+</pre></div>
+
+<div class="codehilite"><pre><span></span>$ floyd run --env pytorch-0.2 --mode serve --data a/datasets/b/1:mount
+</pre></div>
+
+</div>
+<hr />
+<h2 id="help-make-this-document-better">Help make this document better<a class="headerlink" href="#help-make-this-document-better" title="Permanent link">&para;</a></h2>
+<p>This guide, as well as the rest of our docs, are open-source and available on 
+<a href="https://github.com/floydhub/floyd-docs">GitHub</a>. We welcome your contributions.</p>
+<ul>
+<li>Suggest an edit to this page (by clicking the edit icon at the top next to the title).</li>
+<li><a href="https://github.com/floydhub/floyd-docs/issues/new?body=This%20issue%20is%20about%20%3C">Open an issue about this page</a> to report a problem.</li>
+</ul>
                 
                   
                 
@@ -1225,7 +1684,7 @@ Data alice/datasets/quick-start/1: Deleted
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../create_and_upload_dataset/" title="Create and Upload a Dataset" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../basics/delete/" title="Delete a Project" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1234,19 +1693,19 @@ Data alice/datasets/quick-start/1: Deleted
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Create and Upload a Dataset
+                Delete a Project
               </span>
             </div>
           </a>
         
         
-          <a href="../data/mounting_data/" title="Mount Data to a Job" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../stop_job/" title="Stop a Job" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Mount Data to a Job
+                Stop a Job
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

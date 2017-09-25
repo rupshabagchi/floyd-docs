@@ -461,8 +461,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guides/delete_job/" title="Delete a Job" class="md-nav__link">
-      Delete a Job
+    <a href="../../guides/run_a_job/" title="Run a Job" class="md-nav__link">
+      Run a Job
     </a>
   </li>
 
@@ -487,6 +487,18 @@
   <li class="md-nav__item">
     <a href="../../guides/jobs/tensorboard/" title="Enable Tensorboard" class="md-nav__link">
       Enable Tensorboard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/delete_job/" title="Delete a Job" class="md-nav__link">
+      Delete a Job
     </a>
   </li>
 
@@ -1367,22 +1379,17 @@ Project <span class="s2">&quot;mnist-pytorch&quot;</span> initialized in the cur
 <h2 id="running-jupyter-notebook-on-floydhub">Running Jupyter Notebook on FloydHub<a class="headerlink" href="#running-jupyter-notebook-on-floydhub" title="Permanent link">&para;</a></h2>
 <p>Starting a Jupyter Notebook on FloydHub is very simple. Use the <a href="../../commands/run/">floyd run</a> command with <code class="codehilite">--mode jupyter</code> flag.</p>
 <p>Execute the following command from the command line:</p>
-<div class="codehilite"><pre><span></span>$ floyd run --mode jupyter --gpu --env pytorch
+<div class="codehilite"><pre><span></span>$ floyd run --mode jupyter --gpu --env pytorch-0.2
 Creating project run. Total upload size: <span class="m">21</span>.9KiB
 Syncing code ...
 <span class="o">[================================]</span> <span class="m">23333</span>/23333 - <span class="m">00</span>:00:00
-RUN ID                  NAME
-----------------------  ---------------------
-MhDNgxBHi74EKaffBKSbTN  saip/mnist-pytorch/3
+NAME
+--------------------
+saip/mnist-pytorch/3
 
 Setting up your instance and waiting <span class="k">for</span> Jupyter notebook to become available ..............
 
 Path to jupyter notebook: https://www.floydhub.com/notebooks/pCoPyzZtYeo6mE9PpSWsmY
-
-To view logs enter:
-    floyd logs saip/mnist-pytorch/3
-
-Opening the jupyter notebook in your browser now ...
 </pre></div>
 
 <p>This will take a little bit. As it executes, Floyd is doing the following behind the scenes:</p>
@@ -1399,9 +1406,9 @@ Opening the jupyter notebook in your browser now ...
 <h3 id="check-the-status-of-your-job">Check the status of your job<a class="headerlink" href="#check-the-status-of-your-job" title="Permanent link">&para;</a></h3>
 <p>You can view the status of your job from your terminal using the <a href="../../commands/status/">floyd status</a> command </p>
 <div class="codehilite"><pre><span></span>$ floyd status saip/mnist-pytorch/3
-RUN ID                  CREATED         STATUS      DURATION<span class="o">(</span>s<span class="o">)</span>  NAME                   INSTANCE    DESCRIPTION
-----------------------  --------------  --------  -------------  ---------------------  ----------  -------------
-MhDNgxBHi74EKaffBKSbTN  <span class="m">16</span> minutes ago  running               <span class="m">0</span>  saip/mnist-pytorch/3   gpu
+JOB NAME                CREATED         STATUS      DURATION<span class="o">(</span>s<span class="o">)</span>  INSTANCE    DESCRIPTION
+----------------------  --------------  --------  -------------  ----------  -------------
+saip/mnist-pytorch/3    <span class="m">16</span> minutes ago  running               <span class="m">0</span>  gpu
 </pre></div>
 
 <p>You can also view the status by going to the project page in the web dashboard.</p>
