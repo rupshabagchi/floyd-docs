@@ -482,6 +482,33 @@
     Upload a Dataset
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resuming-an-upload" title="Resuming an Upload" class="md-nav__link">
+    Resuming an Upload
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updatingversioning-your-dataset" title="Updating/Versioning Your Dataset" class="md-nav__link">
+    Updating/Versioning Your Dataset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-upload-process" title="Understanding the Upload Process" class="md-nav__link">
+    Understanding the Upload Process
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -1149,6 +1176,33 @@
     Upload a Dataset
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resuming-an-upload" title="Resuming an Upload" class="md-nav__link">
+    Resuming an Upload
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updatingversioning-your-dataset" title="Updating/Versioning Your Dataset" class="md-nav__link">
+    Updating/Versioning Your Dataset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-upload-process" title="Understanding the Upload Process" class="md-nav__link">
+    Understanding the Upload Process
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -1172,7 +1226,7 @@
                 
                 <h2 id="create-a-new-dataset">Create a new Dataset<a class="headerlink" href="#create-a-new-dataset" title="Permanent link">&para;</a></h2>
 <p>A <a href="">Dataset</a> is a collection of data. If you have used Github, datasets in
-FloydHub are also a lot like code repositories, except they are for storing and
+FloydHub are a lot like code repositories, except they are for storing and
 versioning data.</p>
 <p>To create a new Dataset, visit
 <a href="https://www.floydhub.com/datasets"><a href="http://www.floydhub.com/datasets">www.floydhub.com/datasets</a></a> and click on the
@@ -1186,13 +1240,81 @@ FloydHub community. If your data is proprietary, please select <code class="code
 will ensure that only you and your team will have access to this dataset.</p>
 <h2 id="upload-a-dataset">Upload a Dataset<a class="headerlink" href="#upload-a-dataset" title="Permanent link">&para;</a></h2>
 <p>Once you have created a dataset, you can upload data from your terminal using
-the <a href="../../../commands/data">floyd data</a> command. For example:</p>
+the <a href="../../../commands/data">floyd data</a> command:</p>
+<ol>
+<li><code class="codehilite">floyd data init &lt;dataset_name&gt;</code></li>
+<li><code class="codehilite">floyd data upload</code></li>
+</ol>
+<p>For example:</p>
 <div class="codehilite"><pre><span></span>$ floyd data init imagenet-2017
 Dataset <span class="s2">&quot;imagenet-2017&quot;</span> initialized in current directory
 ...
 $ floyd data upload
 Compressing data...
 </pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depending on the size of your dataset and the speed of your internet
+connection, uploading a dataset can take a while.</p>
+</div>
+<h3 id="resuming-an-upload">Resuming an Upload<a class="headerlink" href="#resuming-an-upload" title="Permanent link">&para;</a></h3>
+<p>Dataset uploads are resumable. If your Internet connection cuts out during an
+upload, you'll be able to resume it later if you choose to.</p>
+<p>If your upload has stopped before it completing, resume it using the <code class="codehilite">--resume</code>
+or <code class="codehilite">-r</code> flag:</p>
+<div class="codehilite"><pre><span></span>$ floyd data upload --resume
+Uploading compressed data. Total upload size: <span class="m">74</span>.0MiB
+<span class="o">[=</span>                               <span class="o">]</span> <span class="m">4194304</span>/77626756 - <span class="m">00</span>:00:00
+</pre></div>
+
+<p>If you don't pass the <code class="codehilite">--resume</code> flag, but you have an unfinished upload, you
+will be prompted to specify whether or not you'd like to resume the previous
+upload:</p>
+<div class="codehilite"><pre><span></span>$ floyd data upload
+An unfinished upload exists. Would you like to resume it? <span class="o">[</span>y/N<span class="o">]</span>: N
+Compressing data...
+</pre></div>
+
+<h3 id="updatingversioning-your-dataset">Updating/Versioning Your Dataset<a class="headerlink" href="#updatingversioning-your-dataset" title="Permanent link">&para;</a></h3>
+<p>If you've made changes to your dataset and would like to upload it again, use
+the following steps. You'll notice they are the same as uploading your dataset
+the first time:</p>
+<ol>
+<li><code class="codehilite">cd</code> into your dataset's directory</li>
+<li>Run <code class="codehilite">floyd data init &lt;dataset_name&gt;</code> to prepare to upload</li>
+<li>Run <code class="codehilite">floyd data upload</code></li>
+</ol>
+<p>Your dataset will be versioned for you, so you can still reference the old one
+if you'd like. Datasets will be named with sequential numbers, like this:</p>
+<ul>
+<li>mckay/datasets/foo/1</li>
+<li>mckay/datasets/foo/2</li>
+<li>mckay/datasets/foo/3</li>
+<li>...</li>
+</ul>
+<p>When using a dataset in a job, be sure to reference to the dataset version that
+your job needs.</p>
+<h3 id="understanding-the-upload-process">Understanding the Upload Process<a class="headerlink" href="#understanding-the-upload-process" title="Permanent link">&para;</a></h3>
+<p>When you upload a dataset to FloydHub, Floyd CLI compresses and zips your data
+before securely transferring it to FloydHub's servers over the Internet. Once
+your dataset has been uploaded, FloyHub decompresses and unzips your dataset
+for you. If you have a large dataset, unpacking your data on FloydHub's servers
+can take a while.</p>
+<p>You can check the status of your upload using <code class="codehilite">floyd data status</code> with the name
+of your dataset, as shown below:</p>
+<div class="codehilite"><pre><span></span>$ floyd data status mckay/datasets/my_dataset/1
+DATA NAME                    CREATED        STATUS    DISK USAGE
+---------------------------  -------------  --------  ------------
+mckay/datasets/my_dataset/1  <span class="m">3</span> minutes ago  valid     <span class="m">82</span>.96 MB
+</pre></div>
+
+<p><code class="codehilite">valid</code> is the state you're looking for. That means that your dataset has finished being unpacked and is ready to use.</p>
+<div class="admonition warning">
+<p class="admonition-title">Good to Know</p>
+<p>It will not save you time to compress your dataset before uploading it,
+since Floyd CLI already compresses your dataset to minimize upload time.</p>
+</div>
                 
                   
                 
