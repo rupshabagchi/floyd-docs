@@ -575,15 +575,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installing-dependencies-inside-jupyter-notebook" title="Installing dependencies inside Jupyter Notebook" class="md-nav__link">
-    Installing dependencies inside Jupyter Notebook
+  <a href="#installing-non-python-dependencies" title="Installing Non-Python Dependencies" class="md-nav__link">
+    Installing Non-Python Dependencies
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#installing-other-dependencies" title="Installing other dependencies" class="md-nav__link">
-    Installing other dependencies
+  <a href="#installing-dependencies-inside-jupyter-notebook" title="Installing Dependencies Inside Jupyter Notebook" class="md-nav__link">
+    Installing Dependencies Inside Jupyter Notebook
   </a>
   
 </li>
@@ -1185,15 +1185,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installing-dependencies-inside-jupyter-notebook" title="Installing dependencies inside Jupyter Notebook" class="md-nav__link">
-    Installing dependencies inside Jupyter Notebook
+  <a href="#installing-non-python-dependencies" title="Installing Non-Python Dependencies" class="md-nav__link">
+    Installing Non-Python Dependencies
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#installing-other-dependencies" title="Installing other dependencies" class="md-nav__link">
-    Installing other dependencies
+  <a href="#installing-dependencies-inside-jupyter-notebook" title="Installing Dependencies Inside Jupyter Notebook" class="md-nav__link">
+    Installing Dependencies Inside Jupyter Notebook
   </a>
   
 </li>
@@ -1227,7 +1227,9 @@
                 <p>Floydhub's <a href="../../environments/">environments</a> come with many common deep learning and machine learning packages and dependencies preinstalled. Examples of pre-installed packages include <code class="codehilite">numpy</code>, <code class="codehilite">scipy</code>, <a href="http://opencv.org/">OpenCV</a>, <a href="https://gym.openai.com/">OpenAI Gym</a>, <a href="https://spacy.io/">SpaCy</a>, etc.</p>
 <p>If you need additional or custom packages, you can install them before running your job.</p>
 <h2 id="installing-python-dependencies">Installing Python dependencies<a class="headerlink" href="#installing-python-dependencies" title="Permanent link">&para;</a></h2>
-<p>If your code needs additional Python packages at run time, you can add them to a special file named <code class="codehilite">floyd_requirements.txt</code>. </p>
+<p>If your code needs additional Python packages at run time, you can add them to
+a special file named <code class="codehilite">floyd_requirements.txt</code>. If you want to install
+non-Python packages, please see <a href="#installing-non-python-dependencies">here</a>.</p>
 <p>It is similar to Python's <a href="https://pip.pypa.io/en/stable/user_guide/#requirements-files">requirements.txt</a> file and should be present in the same directory from where you issue the <code class="codehilite">floyd run</code> command. This is a special file that will be read before your job is started and the packages listed here will be installed before running your job.</p>
 <p><img alt="floyd_requirements.txt" src="../../../img/floyd-requirements.jpg" /></p>
 <p>Here is an <code class="codehilite">floyd_requirements.txt</code> example file:</p>
@@ -1242,39 +1244,51 @@
 <li><strong>One package per line</strong>: Ensure that you have only one package per line in <code class="codehilite">floyd_requirements.txt</code></li>
 <li><strong>Installing specific versions</strong>: You can install specific versions of packages using the <code class="codehilite">&lt;package&gt;==&lt;version&gt;</code> notation. For example, an entry <code class="codehilite">tqdm</code> will install the latest version of the package, but <code class="codehilite">tqdm==4.11.2</code> will force install that specific version.</li>
 </ul>
-<h2 id="installing-dependencies-inside-jupyter-notebook">Installing dependencies inside Jupyter Notebook<a class="headerlink" href="#installing-dependencies-inside-jupyter-notebook" title="Permanent link">&para;</a></h2>
+<h2 id="installing-non-python-dependencies">Installing Non-Python Dependencies<a class="headerlink" href="#installing-non-python-dependencies" title="Permanent link">&para;</a></h2>
+<p>You might want to install non-Python packages or other packages that have custom installation steps. If you are using a Jupyter Notebook, you can follow <a href="#installing-dependencies-inside-jupyter-notebook">these steps</a> to install arbitrary packages interactively.</p>
+<p>If you are running a script using the <code class="codehilite">floyd run &quot;&lt;command&gt;&quot;</code> command, you can do one of the following:</p>
+<ol>
+<li>
+<p><strong>Include the installation steps in the <code class="codehilite">&lt;command&gt;</code></strong></p>
+<p>For example, to install <a href="https://github.com/openai/universe">OpenAI Universe</a>
+before running your actual script <code class="codehilite">train.py</code>:</p>
+<div class="codehilite"><pre><span></span>$ floyd run <span class="s2">&quot;git clone https://github.com/openai/universe.git &amp;&amp; cd universe &amp;&amp; pip install -e . &amp;&amp; python train.py&quot;</span>
+</pre></div>
+
+<p>This will clone the Universe git repo, install it and then execute <code class="codehilite">pythontrain.py</code>.</p>
+</li>
+<li>
+<p><strong>Create an installation script</strong>:</p>
+<p>Including the setup instructions in the <code class="codehilite">run</code> command can get unwieldy very
+soon. An alternative would be to create a bash script with the sequence of
+setup commands (say, <code class="codehilite">setup.sh</code>) and then execute this bash script as part
+of your <code class="codehilite">floyd run</code>.</p>
+<p>Here's an example of what <code class="codehilite">setup.sh</code> might look like:</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+git clone https://github.com/openai/universe.git
+<span class="nb">cd</span> universe
+pip install -e .
+</pre></div>
+
+<p>Execute the setup bash script in your <code class="codehilite">floyd run</code> command before your
+actual job:</p>
+<div class="codehilite"><pre><span></span>$ floyd run <span class="s2">&quot;bash setup.sh &amp;&amp; python train.py&quot;</span>
+</pre></div>
+
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your job will run in a Linux environment. You can use the APT package
+manager to install dependencies using <code class="codehilite">apt-get</code>.</p>
+</div>
+<h2 id="installing-dependencies-inside-jupyter-notebook">Installing Dependencies Inside Jupyter Notebook<a class="headerlink" href="#installing-dependencies-inside-jupyter-notebook" title="Permanent link">&para;</a></h2>
 <p>You can install packages (Python or otherwise) interactively inside Jupyter Notebooks. To execute a non-Python command inside a Notebook, prepend it with <code class="codehilite">!</code>.</p>
 <p>For example, to install <code class="codehilite">textblob</code>, you can execute <code class="codehilite"><span class="sx">!pip install textblob</span></code> inside your Notebook:</p>
 <p><img alt="Install inside Jupyter Notebook" src="../../../img/jupyter_command.jpg" /></p>
 <p>You can also use this method to install non-Python packages. For example, to install <a href="https://github.com/openai/universe">OpenAI Universe</a> inside your Notebook, you can execute <code class="codehilite"><span class="sx">!git clone https://github.com/openai/universe.git &amp;&amp; cd universe &amp;&amp; pip install -e .</span></code></p>
 <p><img alt="Install non-Python package inside Jupyter Notebook" src="../../../img/jupyter_command_non-python.jpg" /></p>
-<h2 id="installing-other-dependencies">Installing other dependencies<a class="headerlink" href="#installing-other-dependencies" title="Permanent link">&para;</a></h2>
-<p>You might want to install non-Python packages or other packages that have custom installation steps. If you are using a Jupyter Notebook, you can follow <a href="#installing-dependencies-inside-jupyter-notebook">these steps</a> to install arbitrary packages interactively.</p>
-<p>If you are running a script using the <code class="codehilite">floyd run &quot;&lt;command&gt;&quot;</code> command, you can do one of the following:</p>
-<ul>
-<li><strong>Include the installation steps in the <code class="codehilite">&lt;command&gt;</code></strong></li>
-</ul>
-<p>For example, to install <a href="https://github.com/openai/universe">OpenAI Universe</a> before running your actual script <code class="codehilite">train.py</code>:</p>
-<div class="codehilite"><pre><span></span>$ floyd run <span class="s2">&quot;git clone https://github.com/openai/universe.git &amp;&amp; cd universe &amp;&amp; pip install -e . &amp;&amp; python train.py&quot;</span>
-</pre></div>
-
-<p>This will clone the Universe git repo, install it and then execute <code class="codehilite">python train.py</code>.</p>
-<ul>
-<li><strong>Create an installation script</strong>:</li>
-</ul>
-<p>Including the setup instructions in the <code class="codehilite">run</code> command can get unwieldy very soon. An alternative would be to create a bash script with the sequence of setup commands (say, <code class="codehilite">setup.sh</code>) and then execute this bash script as part of your <code class="codehilite">floyd run</code>.</p>
-<p><code class="codehilite">setup.sh</code></p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
-
-git clone https://github.com/openai/universe.git
-<span class="nb">cd</span> universe
-pip install -e . 
-</pre></div>
-
-<p>Execute the setup bash script in your <code class="codehilite">floyd run</code> command before your actual job:</p>
-<div class="codehilite"><pre><span></span>$ floyd run <span class="s2">&quot;bash setup.sh &amp;&amp; python train.py&quot;</span>
-</pre></div>
-
 <hr />
 <h2 id="help-make-this-document-better">Help make this document better<a class="headerlink" href="#help-make-this-document-better" title="Permanent link">&para;</a></h2>
 <p>This guide, as well as the rest of our docs, are open-source and available on 
